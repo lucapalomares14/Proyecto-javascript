@@ -8,37 +8,62 @@
 </head>
 <body>
     <h1>CATORCE AUTOMOTORES</h1>
-    <h2>Tu proximo vehiculo esta a un paso</h2>
-
-    <p>Consulta nuestra linea de vehiculos disponibles y accede al precio final de cada unidad. <b>Selecciona el modelo que mas se adapte a tus necesidades.</b> </p>
+    <h2>Tu proximo vehiculo esta a un paso</h2>    
     
-    
-    <div class="catalogo-autos" id="catalogoAutos">
+  <div class="catalogo-autos" id="catalogoAutos">
 
         <div class="auto-disponible">
     <img src="./medios/imagen-tiguan.webp" alt="Tiguan Allspace">
     <h3>Volkswagen Tiguan Allspace</h3>
     <p>Motor 2.0 TSI 350Nm</p>
+    <p>precio: $32.500.000</p>
+    <button onclick="agregarAlCarrito('Tiguan Allspace', 32500000)" >Comprar</button>
   </div>
   
   <div class="auto-disponible">
       <img src="./medios/imagen-virtus.webp" alt="Virtus">
     <h3>Volkswagen Virtus Highline</h3>
     <p>Motor 1.4 TSI 150 CV</p>
+    <p>Precio: $23.700.000</p>
+    <button  onclick="agregarAlCarrito('Virtus Highline', 23700000)" >Comprar</button>
 </div>
   
 <div class="auto-disponible">
       <img src="./medios/imagen-vento.webp" alt="Vento GLI">
     <h3>Volkswagen Vento GLI</h3>
     <p>Motor 2.0 TSI DSG</p>
+    <p>Precio: $39.500.000</p>
+    <button onclick="agregarAlCarrito ('Vento GLI', 39500000)" >Comprar</button>
   </div>
 
-  
+<div class="auto-disponible">
+<img src="./medios/imagen-tcross.webp" alt="T-cross">
+<h3>Volkswagen t-cross Extreme</h3>
+<p>Motor 200 TSI</p>
+<p>Precio: $41.500.000</p>
+<button onclick="agregarAlCarrito('T-cross',41500000)" >Comprar</button>
 </div>
 
-<div class="boton-consecio" >
-<button id="BtnCatalogo" >Consultar precios</button>
+<div class="auto-disponible">
+<img src="./medios/imagen-saveiroextreme.webp" alt="">
+<h3>Volkswagen Saveiro Extreme</h3>
+<p>Motor 1.6 MSI</p>
+<p>Precio: $38.200.000</p>
+<button onclick="agregarAlCarrito('Saveiro Extreme',38200000)" >Comprar</button>
 </div>
+<div class="auto-disponible">
+<img src="./medios/imagen-polo.webp" alt="">
+<h3>Volkswagen Polo Highline</h3>
+<p>Motor 1.6 MSI</p>
+<p>Precio: $26.000.000</p>
+<button onclick="agregarAlCarrito('Polo Highline',26000000)" >Comprar</button>
+</div>
+
+</div>
+
+<h2>Resumen de tu compra:</h2>
+<div  id="carrito"></div>
+<button id="finalizarCompra" >Finalizar Compra</button>
 
 <script  src="./js/main.js" defer></script>
 </body>

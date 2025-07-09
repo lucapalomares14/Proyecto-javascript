@@ -1,34 +1,51 @@
-// Catálogo de vehículos (nombres y precios)
-let vehiculos = ["Volkswagen Tiguan Allspace", "Volkswagen Virtus", "Volkswagen Vento GLI"];
-let precios = [5000, 13500, 32000];
+let carrito = [];
 
-// Función que muestra el catálogo
-function mostrarCatalogo() {
-  let lista = "Catálogo de vehículos disponibles:\n";
-  for (let i = 0; i < vehiculos.length; i++) {
-    lista += (i + 1) + ". " + vehiculos[i] + " - U$S " + precios[i] + "\n";
+if (localStorage.getItem("carrito")) {
+  carrito = JSON.parse(localStorage.getItem("carrito"));
+}
+
+function agregarAlCarrito(modelo, precio) {
+  carrito.push({ modelo: modelo, precio: precio });
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+  mostrarCarrito();
+}
+
+function mostrarCarrito() {
+  let contenedor = document.getElementById("carrito");
+  contenedor.innerHTML = "";
+
+  if (carrito.length === 0) {
+    contenedor.innerHTML = "<p>No agregaste ningún auto todavía.</p>";
+    return;
   }
-  return lista;
-}
 
-// Función para la selección del vehículo
-function seleccionarVehiculo() {
-  let opcion = prompt(mostrarCatalogo() + "\nIngresá el número del vehículo que te interesa:");
-  let indice = parseInt(opcion) - 1;
+  let total = 0;
 
-  if (indice >= 0 && indice < vehiculos.length) {
-    alert("Elegiste: " + vehiculos[indice] + "\nPrecio final: U$S " + precios[indice]);
-    alert("¡Compra exitosa! Gracias por tu compra")
-  } else {
-    alert("Opción no válida. Volvé a intentarlo.");
+  for (let i = 0; i < carrito.length; i++) {
+    let auto = carrito[i];
+    let p = document.createElement("p");
+    p.innerText = auto.modelo + " - $" + auto.precio;
+    contenedor.appendChild(p);
+    total += auto.precio;
   }
+
+  let totalFinal = document.createElement("p");
+  totalFinal.innerHTML = "<strong>Total: $" + total + "</strong>";
+  contenedor.appendChild(totalFinal);
 }
 
-// Función para comprar
-function iniciarConcesionario() {
-  alert("Bienvenido a Catorce Automotores.");
-  seleccionarVehiculo();
-  alert("Gracias por visitarnos. ¡Te esperamos pronto!");
-}
+mostrarCarrito();
 
-document.getElementById ("BtnCatalogo") .addEventListener("click", iniciarConcesionario)
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("finalizarCompra");
+  if (btn) {
+    btn.addEventListener("click", finalizarCompra);
+  }
+});
+
+function finalizarCompra() {
+  carrito = [];
+  localStorage.removeItem("carrito");
+  let contenedor = document.getElementById("carrito");
+  contenedor.innerHTML = "<p><strong>¡Gracias por tu compra!</strong></p>";
+}

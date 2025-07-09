@@ -1,73 +1,59 @@
-body{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-}
-h1{
-    color: #003087;
-    text-align: center;
-}
-h2{
-    color: #222;
-    font-weight: 500;
-    font-size: 1.2rem;
-    text-align: center;
-}
-p{
-    color: #555;
-    text-align: center;
-}
 
 .catalogo-autos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 20px;
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 .auto-disponible {
-  background-color: #fff;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 280px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
   text-align: center;
 }
 
 .auto-disponible img {
   width: 100%;
-  height: 400px;
-  border-radius: 8px;
-  object-fit: cover;
+  height: 180px;
+ 
+  border-radius: 4px;
 }
 
-.auto-disponible h3 {
-  font-size: 1.2em;
-  margin: 10px 0 5px;
-  color: #00264d;
+.auto-disponible button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 10px;
+  margin-top: 10px;
+  cursor: pointer;
 }
 
-.auto-disponible p {
-  color: #333;
-  font-size: 1em;
+.auto-disponible button:hover {
+  background-color: #0056b3;
 }
 
-.boton-consecio {
-    text-align: center;
-    margin: 40px 0;
+#carrito {
+  margin-top: 30px;
+  padding: 15px;
+  background-color: #eaeaea;
+  border-radius: 5px;
+  max-width: 600px;
 }
-.boton-consecio button{
-    padding: 12px 24px ;
-    background-color: #004a99;
-    color: white;
-    font-size: 16px;
-    border: 4px;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+
+#finalizarCompra {
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  padding: 5px 20px;
+  border-radius: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 15px;
 }
-.boton-consecio button:hover{
-    background-color: #003366;
+
+#finalizarCompra {
+  padding: 5px 16px;
+  background-color: #0056b3;
 }
